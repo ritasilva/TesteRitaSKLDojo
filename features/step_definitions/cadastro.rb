@@ -3,7 +3,8 @@ Dado(/^que eu esteja na tela de cadastro de empregado$/) do
   find(:id,'txtUsername').set "admin"
   find(:id,'txtPassword').set "admin"
   find(:id,'btnLogin').click
-  visit "http://opensource.demo.orangehrmlive.com/index.php/pim/addEmployee"
+  find(:id,'menu_pim_viewPimModule').click
+  find(:id,'menu_pim_addEmployee').click
 end
 
 Dado(/^efetuo o cadastro com dados válidos$/) do
@@ -14,5 +15,5 @@ Dado(/^efetuo o cadastro com dados válidos$/) do
 end
 
 Então(/^o cadastro efetuado com sucesso$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  assert_text("Personal Details")
 end
